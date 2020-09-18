@@ -18,10 +18,11 @@ RUN npm install -g firebase-tools
 COPY . .
 
 
-# WORKDIR /usr/src/app/messaging
+WORKDIR /usr/src/app/messaging
 
-# RUN firebase login:ci --interactive
+RUN firebase use dashcam-fcm-dev-client --token "1//06FE3bwCfh9TaCgYIARAAGAYSNwF-L9Irl1W0u2vkEbenysGli8BtTXRv8AHNKf63BelHZLgZpTLw9hRHPnL7Kd-LSZdc7igxFjg"
 
-# RUN firebase use dashcam-fcm-dev-client
+CMD [ "firebase", "serve", "-p", "8088", "-o", "0.0.0.0", "--token", "1//06FE3bwCfh9TaCgYIARAAGAYSNwF-L9Irl1W0u2vkEbenysGli8BtTXRv8AHNKf63BelHZLgZpTLw9hRHPnL7Kd-LSZdc7igxFjg" ]
 
-# CMD [ "firebase", "serve", "-p", "8088" ]
+EXPOSE 8088
+
